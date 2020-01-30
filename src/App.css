@@ -1,8 +1,17 @@
 .App {
-  text-align: center;
+  /*text-align: center;*/
+  background-color: #282c34;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: [row1-start] 100px [row1-end row2-start] auto [row2-end row3-start] 30px [row3-end];
+  grid-template-columns: [col1-start] 450px [col1-end col2-start] auto [col2-end col3-start] 50px [col3-end];
+  grid-template-areas: 
+    "header subheader subheader"
+    "subsarea detailsarea extraarea"
+    "footer footer footer";
 }
 
-.App-logo {
+/*.App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -11,28 +20,241 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}*/
+.head{
+  background-color: white;
+  font-family: monospace;
+  grid-area: header;
+  padding: 5px;
+  text-align: center;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.subhead{
+  color: white;
+  text-align: center;
+  /* font-size: 2rem; */
+  grid-area: subheader;
+  /* display: flex; */
+  justify-content: space-between;
+}
+button{
+  border: none;
+  border-radius: 0;
+  padding: 0;
+}
+button:focus{
+  border: none;
+}
+button:focus{
+  border: none;
+}
+.sub{
+  display: inline-block;
+  text-align: center;
+  margin: 0;
+  height: 75px;
+  width: 100%;
+  font-size: 1.5rem;
+}
+.sub-selected{
+  border-radius: 0;
+  border: 1px solid black;
+}
+.sub-name{
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.sub-status{
+  margin: 16px 5px 5px 5px;
+  float: right;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: red;
+  border: 1px solid black;
+  color: white;
+  line-height: 40px;
+}
+.isactive{
+  background-color: green;
+}
+.subs-pane{
   display: flex;
   flex-direction: column;
-  align-items: center;
+  text-align: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  grid-area: subsarea;
+  background-color: beige;
+}
+.sub-details{
+  grid-area: detailsarea;
+  display: flex;
+  flex-direction: column;
+}
+.foot{
+  background-color: black;
+  color: white;
+  grid-area: footer;
+  text-align: center;
+}
+/* MEMBER STYLES */
+.member-container{
+  background: black;
+  border-radius: 25px;
+  margin: 25px 5px 0;
+  height: auto;
+  position: relative;
+  z-index: 5;
+}
+.mod-member{
+  height: 50px;
+  padding-top: 0;
+  transition: padding-top .5s ease;
+}
+.mod-member.selected{
+  padding-top: 60px;
+}
+.member{
+  text-align: center;
+  width: 100%;
+  height: 50px;
+  margin: 0;
+  font-size: 1.5rem;
+  font-variant: small-caps;
+  line-height: 50px;
+  border-radius: 25px;
+  position: absolute;
+  top: 0;
+  z-index: 10;
+}
+.member p{
+  display: inline-block;
+  width: 100%;
+  margin: 0;
+}
+.member .balance{
+  display: inline-block;
+  float: right;
+  width: 40px;
+  height: 40px;
+  margin: -45px 5px 5px 5px;
+  line-height: 40px;
+  border-radius: 50%;
+  background-color: white;
+}
+/* SMALL ACTION BUTTONS */
+.action-butt{
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin: 0 10px 10px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+}
+.action-button.check{
+  border: 1px solid black;
+  color: black;
+  background-color: green;
+  transition: all .4s ease;
+}
+.action-butt.check:disabled{
+  border: 1px solid white;
+  color: white;
+  background-color: black;
+}
+/* .action-butt.check:enabled{
+  border: 1px solid black;
+  color: black;
+  background-color: green;
+} */
+.del-member{
+  background-color: #d81f26;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.edit-member{
+  background-color: aquamarine;
+}
+.send-member{
+  background-color: indianred;
+}
+.dec-member{
+  background-color: beige;
+  float: right;
+}
+.inc-member{
+  background-color: beige;
+  float: right;
+}
+.new-balance{
+  color: white;
+  font-size: 1.6rem;
+  line-height: 40px;
+  float: right;
+}
+.shadow{
+  box-shadow: 3px 3px 4px rgba(0,0,0,.5);
+}
+ul{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  width: 100%;
+}
+.add-new{
+  display: block;
+  text-align: center;
+  font-size: 40px;
+  color: black;
+  line-height: 40px;
+  width: 80%;
+  height: 50px;
+  border: 2px solid darkgrey;
+  border-radius: 10px;
+  margin: auto auto 5px;
+  background: none;
+}
+.no-selection{
+  font-size: 1.5rem;
+  color: lightgrey;
+  text-align: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/*Member card background colours*/
+.white{
+  background-color: white;
+}
+.lightblue{
+  background-color: lightblue;
+}
+.yellow{
+  color: darkblue;
+  background-color: yellow;
+}
+/*Sub button designs*/
+button.sub span{
+  display: inline-block;
+  width: 75px;
+  height: 75px;
+  float: left;
+  background-size: 75px 75px;
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+button.Spotify{
+  background-color: #84bd00;
+  color: white;
+}
+button.Spotify span{
+  background-image: url("assets/spotify-logo.png");
+  background-color: black;
+  background-clip: cover;
+  border-radius: 50%;
+}
+button.Netflix{
+  background-color: black;
+  color: #d81f26;
+}
+button.Netflix span{
+  background-image: url("assets/netflix-logo.png");
 }
