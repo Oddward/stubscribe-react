@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-#Stubscribe - React
+# Stubscribe - React
 
 This is an app designed for easy & quick management of group subscriptions. Being developed with React for learning purposes and beyond, it is named so because I will likely also make one with Angular CLI and compare the two builds and development processes.
 
